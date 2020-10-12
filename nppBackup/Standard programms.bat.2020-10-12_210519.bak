@@ -195,8 +195,8 @@ ECHO Install LibreOffice...
 	)
 
 ECHO Install Unreal Commander...
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\uncomsetup.exe" "https://unrealcommander.org/download/evolution/uncomsetup3.57(build1486).exe"
-		start uncomsetup.exe /SILENT
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\uncomsetup3.57.exe" "http://repo.mihanik.net/UnrealCommander/uncomsetup3.57.exe"
+		start uncomsetup3.57.exe /SILENT
 
 ECHO Install Google Chrome...
 	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ChromeSetup.exe" "http://repo.mihanik.net/ChromeSetup.exe"
