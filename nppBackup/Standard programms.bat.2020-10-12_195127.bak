@@ -1,6 +1,5 @@
+Rem Отключаем вывод самих команд на экран
 @echo off
-
-Rem Скрипт установки стандартного пакета программ с моего репозитория
 
 rem Windows XP не поддерживается!!!
 ver | find "5.1."
@@ -54,6 +53,9 @@ SCHTASKS /Create /RU "NT AUTHORITY\SYSTEM" /SC DAILY /TN "Microsoft\Office\Offic
 rem Включаем ADMIN шару
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t reg_sz /d 1 /f
 
+REM Отключим защитника Windows
+reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+
 rem Включим межсетевой экран
 netsh advfirewall set allprofiles state on
 
@@ -86,10 +88,15 @@ sc config TermService start= auto
 rem Запустим службу RDP
 net start TermService
 
+rem Отключим автоматическое обновление системы
+net stop wuauserv
+sc config wuauserv start= disabled
+
 rem Добавляем утилиту certutil.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="Certutil"
 netsh firewall add allowedprogram "C:\Windows\System32\certutil.exe" Certutil
 netsh advfirewall firewall add rule name="Certutil" dir=in action=allow program="C:\Windows\System32\certutil.exe"
+
 
 rem ****************************************************************************************
 rem Начинаем устанавливать все программы по очереди
@@ -97,7 +104,8 @@ rem ****************************************************************************
 mkdir C:\Windows\Temp\Mihanikus
 cd C:\Windows\Temp\Mihanikus
 
-ECHO Install curl...
+REM ECHO Install curl
+ECHO ...
 mkdir  "C:\Program Files\curl\"
 
 If exist "%programfiles(x86)%" (
@@ -115,7 +123,10 @@ netsh advfirewall firewall del rule name="curl"
 netsh firewall add allowedprogram "C:\Program Files\curl\curl.exe" Certutil
 netsh advfirewall firewall add rule name="curl" dir=in action=allow program="C:\Program Files\curl\curl.exe"
 
-ECHO Install 7-Zip...
+
+ECHO ...
+ECHO Install 7-Zip
+ECHO ...
  If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://repo.mihanik.net/7-Zip/7z1900-x64.msi"
 		start /wait 7z1900-x64.msi /passive
@@ -124,14 +135,19 @@ ECHO Install 7-Zip...
 		start /wait 7z1900.msi /passive
 	)
 
-ECHO Install dotNetFx3.5...
+ECHO ...
+ECHO Install dotNetFx3.5
+ECHO ...
 	Dism /online /enable-feature /featurename:NetFx3
-	
-ECHO Install dotNetFx4.8...
+
+ECHO ...	
+ECHO Install dotNetFx4.8
+ECHO ...
 	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ndp48-x86-x64-allos-enu.exe" "http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 	Start /wait ndp48-x86-x64-allos-enu.exe /q /norestart
 	
-ECHO Install Duplicati...
+REM ECHO Install Duplicati
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x64.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x64.msi"
 		Start /wait duplicati-2.0.5.103_canary_2020-02-18-x64.msi /passive
@@ -152,7 +168,9 @@ sc start Duplicati
 
 del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicati 2.lnk"
 
-ECHO Install Java SE Runtime Environment...
+ECHO ...
+ECHO Install Java SE Runtime Environment
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\jre-8u201-windows-x64.exe" "http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
 		Start /wait jre-8u201-windows-x64.exe  /s
@@ -161,7 +179,9 @@ ECHO Install Java SE Runtime Environment...
 		Start /wait jre-8u201-windows-i586.exe  /s
 	)
 
-ECHO Install LibreOffice...
+ECHO ...
+ECHO Install LibreOffice
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LibreOffice_6.4.0_Win_x64.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x64.msi"
 		Start /wait LibreOffice_6.4.0_Win_x64.msi  /passive
@@ -175,19 +195,27 @@ ECHO Install LibreOffice...
 		Start /wait LibreOffice_6.4.0_Win_x86_helppack_ru.msi  /passive
 	)
 
-ECHO Install Unreal Commander...
+ECHO ...
+ECHO Install Unreal Commander
+ECHO ...
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\uncomsetup3.57.exe" "http://repo.mihanik.net/UnrealCommander/uncomsetup3.57.exe"
 		start uncomsetup3.57.exe /SILENT
 
-ECHO Install Google Chrome...
+ECHO ...
+ECHO Install Google Chrome
+ECHO ...
 	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ChromeSetup.exe" "http://repo.mihanik.net/ChromeSetup.exe"
 	start /wait ChromeSetup.exe /silent /install
 
+ECHO ...
 ECHO Install Skype
+ECHO ...
 	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Skype.exe" "http://repo.mihanik.net/Skype.exe"
 	start /wait Skype.exe  /silent
 
-ECHO Install Notepad++...
+ECHO ...
+ECHO Install Notepad++
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\npp.7.8.4.Installer.x64.exe" "http://repo.mihanik.net/Notepad/npp.7.8.4.Installer.x64.exe"
 		 Start /wait npp.7.8.4.Installer.x64.exe  /S
@@ -196,7 +224,9 @@ ECHO Install Notepad++...
  		Start /wait npp.7.8.4.Installer.exe  /S
  	)
 
-ECHO Install Thunderbird...
+ECHO ...
+ECHO Install Thunderbird
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ThunderbirdSetup68.5.0-x64.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0-x64.exe"
 		 Start /wait ThunderbirdSetup68.5.0-x64.exe -ms
@@ -205,7 +235,9 @@ ECHO Install Thunderbird...
  		Start /wait ThunderbirdSetup68.5.0.exe -ms
  	)
 
-ECHO Install FirefoxSetup...
+ECHO ...
+ECHO Install FirefoxSetup
+ECHO ...
 	If exist "%programfiles(x86)%" (
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\FirefoxSetup.x64.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.x64.exe"
 		 Start /wait FirefoxSetup.x64.exe /SILENT
@@ -214,18 +246,23 @@ ECHO Install FirefoxSetup...
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
-ECHO Install LiteManager Pro...
+
+ECHO ...
+ECHO Install LiteManager Pro
+ECHO ...
 	"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
  	Start /wait LiteManagerPro-Server.msi /passive	
 	sc start ROMService
 
-ECHO Install Adobe Acrobat Reader...
+ECHO ...
+ECHO Install Adobe Acrobat Reader
+ECHO ...
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
-REM ECHO ...
-REM ECHO Install Adobe flash player
-REM ECHO ...
+ECHO ...
+ECHO Install Adobe flash player
+ECHO ...
 
 rem Windows 7?
 rem ver | find "6.1."
@@ -244,17 +281,26 @@ rem 		Start /wait Win8-10-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait Win8-10-Firefox-install_flash_player.exe /VERYSILENT
 rem )
 
-ECHO Install K-Lite_Codec_Pack...
+ECHO ...
+ECHO Install K-Lite_Codec_Pack
+ECHO ...
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\K-Lite_Codec_Pack_1425_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
 		Start /wait K-Lite_Codec_Pack_1425_Mega.exe /silent
 
-ECHO Install AIMP...
+ECHO ...
+ECHO Install AIMP
+ECHO ...
 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\aimp_4.60.2177.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp_4.60.2177.exe /AUTO /SILENT
 
-REM ECHO Install Bullzip PDF Printer
-		REM "C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe" "http://repo.mihanik.net/bullzip/Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe"
-		REM Start /wait Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe
+ECHO ...
+ECHO Install Bullzip PDF Printer
+ECHO ...
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe" "http://repo.mihanik.net/bullzip/Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe"
+		Start /wait Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe
+
+REM Включим защитника Windows
+reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f
 	
 :CONTINUE
 	ECHO .
