@@ -127,12 +127,10 @@ netsh advfirewall firewall add rule name="curl" dir=in action=allow program="C:\
 
 ECHO Install 7-Zip...
  If exist "%programfiles(x86)%" (
-		rem "C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://repo.mihanik.net/7-Zip/7z1900-x64.msi"
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "https://www.7-zip.org/a/7z1900-x64.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://repo.mihanik.net/7-Zip/7z1900-x64.msi"
 		start /wait 7z1900-x64.msi /passive
 	) else (
-		rem "C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "http://repo.mihanik.net/7-Zip/7z1900.msi"
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "https://www.7-zip.org/a/7z1900.exe"
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "http://repo.mihanik.net/7-Zip/7z1900.msi"
 		start /wait 7z1900.msi /passive
 	)
 
