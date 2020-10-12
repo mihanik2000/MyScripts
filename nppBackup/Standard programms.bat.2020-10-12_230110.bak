@@ -283,6 +283,10 @@ ECHO Install AIMP...
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\aimp_4.60.2177.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp_4.60.2177.exe /AUTO /SILENT
 
+REM ECHO Install Bullzip PDF Printer
+		REM "%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe" "http://repo.mihanik.net/bullzip/Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe"
+		REM Start /wait Setup_BullzipPDFPrinter_11_13_0_2823_FREE.exe
+	
 :CONTINUE
 	ECHO .
 	ECHO ‚αρ!
