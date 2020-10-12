@@ -104,18 +104,11 @@ If exist "%programfiles(x86)%" (
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.dll" "C:\Program Files\curl\libcurl-x64.dll"
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl.exe" "C:\Program Files\curl\curl.exe"
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.def" "C:\Program Files\curl\libcurl-x64.def"
-
  ) else (
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.dll" "C:\Program Files\curl\libcurl.dll"
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl.exe" "C:\Program Files\curl\curl.exe"
 	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl-ca-bundle.crt" "C:\Program Files\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.def" "C:\Program Files\curl\libcurl.def"
 )
-
-rem Установим скачанный сертификат для всех пользователей
-
-certutil -f -addstore "My" "C:\Program Files\curl\curl-ca-bundle.crt"
 
 rem Добавляем утилиту curl.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="curl"
