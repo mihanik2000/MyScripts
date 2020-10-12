@@ -146,13 +146,11 @@ ECHO Install dotNetFx4.8...
 	
 ECHO Install Duplicati...
 	If exist "%programfiles(x86)%" (
-		rem "C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-x64.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x64.msi"
-		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-x64.msi" "https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x64.msi"
-		Start /wait duplicati-x64.msi /passive
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x64.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x64.msi"
+		Start /wait duplicati-2.0.5.103_canary_2020-02-18-x64.msi /passive
 	 ) else (
-		rem "C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-x86.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x86.msi"
- 		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-x86.msi" "https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x86.msi"
-		Start /wait duplicati-x86.msi  /passive
+		"C:\Program Files\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\duplicati-2.0.5.103_canary_2020-02-18-x86.msi" "http://repo.mihanik.net/Duplicati/duplicati-2.0.5.103_canary_2020-02-18-x86.msi"
+ 		Start /wait duplicati-2.0.5.103_canary_2020-02-18-x86.msi  /passive
  	)
 
 rem Исключение сетевого экрана для Duplicati
