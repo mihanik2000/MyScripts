@@ -31,9 +31,6 @@ rem Описываем переменные.
 rem ****************************************************************************************
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
-set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
-
 
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
@@ -144,19 +141,22 @@ ECHO .
 ECHO Install 7-Zip...
 ECHO .
  If exist "%SystemDrive%\Program Files (x86)" (
-		"%ProgramFiles%\curl\curl.exe" -o "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
-		start /wait 7z-x64.msi /passive
+		rem "%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "http://repo.mihanik.net/7-Zip/7z1900-x64.msi"
+		"%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900-x64.msi" "https://www.7-zip.org/a/7z1900-x64.msi"
+		start /wait 7z1900-x64.msi /passive
 	) else (
-		"%ProgramFiles%\curl\curl.exe" -o "%MyFolder%\7z.msi" %URL7Zip%
-		start /wait 7z.msi /passive
+		rem "%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "http://repo.mihanik.net/7-Zip/7z1900.msi"
+		"%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\7z1900.msi" "https://www.7-zip.org/a/7z1900.msi"
+		start /wait 7z1900.msi /passive
 	)
 
 ECHO Install dotNetFx3.5...
 	Dism /online /enable-feature /featurename:NetFx3
 	
 ECHO Install dotNetFx4.8...
-	"%ProgramFiles%\curl\curl.exe" -o "%MyFolder%\ndp48.exe" "http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
-	Start /wait ndp48.exe /q /norestart
+	rem "%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ndp48-x86-x64-allos-enu.exe" "http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
+	"%ProgramFiles%\curl\curl.exe" -o "C:\Windows\Temp\Mihanikus\ndp48-x86-x64-allos-enu.exe" "https://download.visualstudio.microsoft.com/download/pr/014120d7-d689-4305-befd-3cb711108212/0fd66638cde16859462a6243a4629a50/ndp48-x86-x64-allos-enu.exe"
+	Start /wait ndp48-x86-x64-allos-enu.exe /q /norestart
 	
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
