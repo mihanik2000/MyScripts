@@ -190,14 +190,18 @@ ECHO Install Java SE Runtime Environment...
 
 ECHO Install LibreOffice...
 	If exist "%SystemDrive%\Program Files (x86)" (
+		rem "%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_6.4.0_Win_x64.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x64.msi"
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x64.msi" "http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86_64/LibreOffice_7.0.1_Win_x64.msi"
 		Start /wait LibreOffice_x64.msi  /passive
+		rem "%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_6.4.0_Win_x64_helppack_ru.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x64_helppack_ru.msi"
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x64_helppack_ru.msi" "http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86_64/LibreOffice_7.0.1_Win_x64_helppack_ru.msi"
 		Start /wait LibreOffice_x64_helppack_ru.msi  /passive
 
 	) else (
+		rem "%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_6.4.0_Win_x86.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x86.msi"
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x86.msi" "http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86/LibreOffice_7.0.1_Win_x86.msi"
 		Start /wait LibreOffice_x86.msi  /passive
+		rem "%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_6.4.0_Win_x86_helppack_ru.msi" "http://repo.mihanik.net/LibreOffice/LibreOffice_6.4.0_Win_x86_helppack_ru.msi"
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x86_helppack_ru.msi" "http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.0.1/win/x86/LibreOffice_7.0.1_Win_x86_helppack_ru.msi"
 		Start /wait LibreOffice_x86_helppack_ru.msi  /passive
 	)
