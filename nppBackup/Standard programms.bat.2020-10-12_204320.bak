@@ -118,7 +118,6 @@ certutil -f -addstore "My" "C:\Program Files\curl\curl-ca-bundle.crt"
 
 rem Добавим путь к curl в path
 setx PATH "C:\Program Files\curl\;%Path%"
-PATH=C:\Program Files\curl\;%Path%
 
 rem Добавляем утилиту curl.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="curl"
