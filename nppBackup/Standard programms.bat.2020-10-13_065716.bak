@@ -34,13 +34,6 @@ set MyFolder=%SystemRoot%\TMP\Mihanikus
 set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
 set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
 
-set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
-
-set URLduplicati="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x86.msi"
-set URLduplicati-x64="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x64.msi"
-
-set URLjre="http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
-set URLjre-x64="http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
 
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
@@ -136,7 +129,7 @@ If exist "%SystemDrive%\Program Files (x86)" (
 )
 
 rem Установим скачанный сертификат для всех пользователей
-rem certutil -f -addstore "My" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+certutil -f -addstore "My" "%ProgramFiles%\curl\curl-ca-bundle.crt"
 
 rem Добавим путь к curl в path
 setx PATH "%ProgramFiles%\curl\;%Path%"
@@ -162,15 +155,15 @@ ECHO Install dotNetFx3.5...
 	Dism /online /enable-feature /featurename:NetFx3
 	
 ECHO Install dotNetFx4.8...
-	"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ndp48.exe" %URLndp48%
+	"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ndp48.exe" "http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 	Start /wait ndp48.exe /q /norestart
 	
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x64.msi" "https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x64.msi"
 		Start /wait duplicati-x64.msi /passive
 	 ) else (
- 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x86.msi" %URLduplicati%
+ 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x86.msi" "https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x86.msi"
 		Start /wait duplicati-x86.msi  /passive
  	)
 
@@ -188,11 +181,11 @@ del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicat
 
 ECHO Install Java SE Runtime Environment...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre-x64.exe" URLjre-x64
-		Start /wait jre-x64.exe  /s
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre-8u201-windows-x64.exe" "http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
+		Start /wait jre-8u201-windows-x64.exe  /s
 	) else (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre.exe" URLjre
-		Start /wait jre.exe  /s
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre-8u201-windows-i586.exe" "http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
+		Start /wait jre-8u201-windows-i586.exe  /s
 	)
 
 ECHO Install LibreOffice...
