@@ -159,10 +159,10 @@ ECHO .
 ECHO Install 7-Zip...
 ECHO .
  If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -k -o "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
 		start /wait 7z-x64.msi /passive
 	) else (
-		curl.exe -k -o "%MyFolder%\7z.msi" %URL7Zip%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\7z.msi" %URL7Zip%
 		start /wait 7z.msi /passive
 	)
 
@@ -170,15 +170,15 @@ ECHO Install dotNetFx3.5...
 	Dism /online /enable-feature /featurename:NetFx3
 	
 ECHO Install dotNetFx4.8...
-	curl.exe -k -o "%MyFolder%\ndp48.exe" %URLndp48%
+	"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ndp48.exe" %URLndp48%
 	Start /wait ndp48.exe /q /norestart
 	
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
 		Start /wait duplicati-x64.msi /passive
 	 ) else (
- 		curl.exe -k -o "%MyFolder%\duplicati-x86.msi" %URLduplicati%
+ 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\duplicati-x86.msi" %URLduplicati%
 		Start /wait duplicati-x86.msi  /passive
  	)
 
@@ -196,29 +196,29 @@ del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicat
 
 ECHO Install Java SE Runtime Environment...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -k -o "%MyFolder%\jre-x64.exe" %URLjre-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre-x64.exe" %URLjre-x64%
 		Start /wait jre-x64.exe  /s
 	) else (
-		curl.exe -k -o "%MyFolder%\jre.exe" %URLjre%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\jre.exe" %URLjre%
 		Start /wait jre.exe  /s
 	)
 
 ECHO Install LibreOffice...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -k -o "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
 		Start /wait LibreOffice_x64.msi  /passive
-		curl.exe -k -o "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
 		Start /wait LibreOffice_x64_helppack_ru.msi  /passive
 
 	) else (
-		curl.exe -k -o "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
 		Start /wait LibreOffice_x86.msi  /passive
-		curl.exe -k -o "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
 		Start /wait LibreOffice_x86_helppack_ru.msi  /passive
 	)
 
 ECHO Install Unreal Commander...
-		curl.exe -k -o "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
 		start uncomsetup.exe /SILENT
 
 ECHO Install Google Chrome...
