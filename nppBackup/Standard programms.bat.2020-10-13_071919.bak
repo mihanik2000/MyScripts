@@ -50,8 +50,6 @@ set URLLibreOffice-helppack-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffic
 
 set URLuncomsetup="https://unrealcommander.org/download/evolution/uncomsetup3.57(build1486).exe"
 
-set URLGoogleChrome="http://repo.mihanik.net/ChromeSetup.exe"
-
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
 rem ****************************************************************************************
@@ -224,7 +222,7 @@ ECHO Install Unreal Commander...
 		start uncomsetup.exe /SILENT
 
 ECHO Install Google Chrome...
-	curl.exe -k -o "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome%
+	"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ChromeSetup.exe" "http://repo.mihanik.net/ChromeSetup.exe"
 	start /wait ChromeSetup.exe /silent /install
 
 ECHO Install Skype
