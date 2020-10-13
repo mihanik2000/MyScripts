@@ -175,13 +175,11 @@ ECHO .
 
 ECHO Install dotNetFx3.5...
 	Dism /online /enable-feature /featurename:NetFx3
-
-ECHO .	
+	
 ECHO Install dotNetFx4.8...
 	curl.exe -k -o "%MyFolder%\ndp48.exe" %URLndp48%
 	Start /wait ndp48.exe /q /norestart
 	
-ECHO .
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		curl.exe -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
@@ -203,7 +201,6 @@ sc start Duplicati
 
 del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicati 2.lnk"
 
-ECHO .
 ECHO Install Java SE Runtime Environment...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		curl.exe -k -o "%MyFolder%\jre-x64.exe" %URLjre-x64%
@@ -213,7 +210,6 @@ ECHO Install Java SE Runtime Environment...
 		Start /wait jre.exe  /s
 	)
 
-ECHO .
 ECHO Install LibreOffice...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		curl.exe -k -o "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
@@ -228,22 +224,18 @@ ECHO Install LibreOffice...
 		Start /wait LibreOffice_x86_helppack_ru.msi  /passive
 	)
 
-ECHO .
 ECHO Install Unreal Commander...
 		curl.exe -k -o "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
 		start uncomsetup.exe /SILENT
 
-ECHO .
 ECHO Install Google Chrome...
 	curl.exe -k -o "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome%
 	start /wait ChromeSetup.exe /silent /install
 
-ECHO .
 ECHO Install Skype
 	curl.exe -k -o "%MyFolder%\Skype.exe" %URLSkype%
 	start /wait Skype.exe  /silent
 
-ECHO .
 ECHO Install Notepad++...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		curl.exe -k -o "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
@@ -253,7 +245,6 @@ ECHO Install Notepad++...
  		Start /wait npp.exe /S
  	)
 
-ECHO .
 ECHO Install Thunderbird...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup68.5.0-x64.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0-x64.exe"
@@ -263,7 +254,6 @@ ECHO Install Thunderbird...
  		Start /wait ThunderbirdSetup68.5.0.exe -ms
  	)
 
-ECHO .
 ECHO Install FirefoxSetup...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.x64.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.x64.exe"
@@ -273,13 +263,11 @@ ECHO Install FirefoxSetup...
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
-ECHO .
 ECHO Install LiteManager Pro...
 	"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
  	Start /wait LiteManagerPro-Server.msi /passive	
 	sc start ROMService
 
-ECHO .
 ECHO Install Adobe Acrobat Reader...
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
@@ -305,12 +293,10 @@ rem 		Start /wait Win8-10-Chrome-install_flash_player_ppapi.exe /VERYSILENT
 rem 		Start /wait Win8-10-Firefox-install_flash_player.exe /VERYSILENT
 rem )
 
-ECHO .
 ECHO Install K-Lite_Codec_Pack...
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\K-Lite_Codec_Pack_1425_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
 		Start /wait K-Lite_Codec_Pack_1425_Mega.exe /silent
 
-ECHO .
 ECHO Install AIMP...
 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\aimp_4.60.2177.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp_4.60.2177.exe /AUTO /SILENT
