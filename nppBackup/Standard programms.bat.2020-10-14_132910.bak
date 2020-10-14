@@ -249,6 +249,7 @@ ECHO Install LibreOffice...
 		Start /wait LibreOffice_x64.msi  /passive
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
 		Start /wait LibreOffice_x64_helppack_ru.msi  /passive
+
 	) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
 		Start /wait LibreOffice_x86.msi  /passive
