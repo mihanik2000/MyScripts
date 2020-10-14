@@ -30,7 +30,6 @@ rem ****************************************************************************
 rem Описываем переменные.
 rem ****************************************************************************************
 set MyFolder=%SystemRoot%\TMP\Mihanikus
-set MyUserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
 
 set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
 set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
@@ -173,10 +172,10 @@ ECHO .
 ECHO Install 7-Zip...
 ECHO .
  If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
+		curl.exe -k -o "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
 		start /wait 7z-x64.msi /passive
 	) else (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\7z.msi" %URL7Zip%
+		curl.exe -k -o "%MyFolder%\7z.msi" %URL7Zip%
 		start /wait 7z.msi /passive
 	)
 
@@ -185,16 +184,16 @@ ECHO Install dotNetFx3.5...
 
 ECHO .	
 ECHO Install dotNetFx4.8...
-	curl.exe -A %MyUserAgent% -k -o "%MyFolder%\ndp48.exe" %URLndp48%
+	curl.exe -k -o "%MyFolder%\ndp48.exe" %URLndp48%
 	Start /wait ndp48.exe /q /norestart
 	
 ECHO .
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
+		curl.exe -k -o "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
 		Start /wait duplicati-x64.msi /passive
 	 ) else (
- 		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\duplicati-x86.msi" %URLduplicati%
+ 		curl.exe -k -o "%MyFolder%\duplicati-x86.msi" %URLduplicati%
 		Start /wait duplicati-x86.msi  /passive
  	)
 
@@ -213,50 +212,50 @@ del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicat
 ECHO .
 ECHO Install Java SE Runtime Environment...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\jre-x64.exe" %URLjre-x64%
+		curl.exe -k -o "%MyFolder%\jre-x64.exe" %URLjre-x64%
 		Start /wait jre-x64.exe  /s
 	) else (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\jre.exe" %URLjre%
+		curl.exe -k -o "%MyFolder%\jre.exe" %URLjre%
 		Start /wait jre.exe  /s
 	)
 
 ECHO .
 ECHO Install LibreOffice...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
+		curl.exe -k -o "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
 		Start /wait LibreOffice_x64.msi  /passive
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
+		curl.exe -k -o "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
 		Start /wait LibreOffice_x64_helppack_ru.msi  /passive
 
 	) else (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
+		curl.exe -k -o "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
 		Start /wait LibreOffice_x86.msi  /passive
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
+		curl.exe -k -o "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
 		Start /wait LibreOffice_x86_helppack_ru.msi  /passive
 	)
 
 ECHO .
 ECHO Install Unreal Commander...
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
+		curl.exe -k -o "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
 		start uncomsetup.exe /SILENT
 
 ECHO .
 ECHO Install Google Chrome...
-	curl.exe -A %MyUserAgent% -k -o "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome%
+	curl.exe -k -o "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome%
 	start /wait ChromeSetup.exe /silent /install
 
 ECHO .
 ECHO Install Skype
-	curl.exe -A %MyUserAgent% -k -o "%MyFolder%\Skype.exe" %URLSkype%
+	curl.exe -k -o "%MyFolder%\Skype.exe" %URLSkype%
 	start /wait Skype.exe  /silent
 
 ECHO .
 ECHO Install Notepad++...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
+		curl.exe -k -o "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
 		 Start /wait npp-x64.exe /S
 	 ) else (
-		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\npp.exe" %URLNotepad%
+		curl.exe -k -o "%MyFolder%\npp.exe" %URLNotepad%
  		Start /wait npp.exe /S
  	)
 
