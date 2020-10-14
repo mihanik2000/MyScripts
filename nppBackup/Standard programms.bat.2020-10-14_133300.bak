@@ -67,10 +67,6 @@ set URLFirefoxSetup-x64="https://yandex.ru/firefox/download?from=lp_s"
 set URLWget="https://eternallybored.org/misc/wget/1.20.3/32/wget.exe"
 set URLWget-x64="https://eternallybored.org/misc/wget/1.20.3/64/wget.exe"
 
-set URLaimp="https://www.aimp.ru/?do=download&os=windows"
-
-set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
-
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
 rem ****************************************************************************************
@@ -339,12 +335,12 @@ rem )
 
 ECHO .
 ECHO Install K-Lite_Codec_Pack...
-		wget.exe --no-check-certificate -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" %URLKLite%
+		wget.exe --no-check-certificate -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
 		Start /wait K-Lite_Codec_Pack_Mega.exe /silent
 
 ECHO .
 ECHO Install AIMP...
-		wget.exe --no-check-certificate -O "%MyFolder%\aimp.exe" %URLaimp%
+		wget.exe --no-check-certificate -O "%MyFolder%\aimp.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp.exe /AUTO /SILENT
 
 :CONTINUE
