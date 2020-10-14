@@ -276,10 +276,10 @@ ECHO Install Skype
 ECHO .
 ECHO Install Notepad++...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe %URLNotepad-x64% -O "%MyFolder%\npp-x64.exe"
+		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
 		 Start /wait npp-x64.exe /S
 	 ) else (
-		wget %URLNotepad% -O "%MyFolder%\npp.exe"
+		curl.exe -A %MyUserAgent% -k -o "%MyFolder%\npp.exe" %URLNotepad%
  		Start /wait npp.exe /S
  	)
 
