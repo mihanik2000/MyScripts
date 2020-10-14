@@ -60,9 +60,6 @@ set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/relea
 set URLthunderbird="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win&lang=ru"
 set URLthunderbird-x64="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win64&lang=ru"
 
-set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win32/ru/Firefox Setup 81.0.2.exe"
-set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win64/ru/Firefox Setup 81.0.2.exe"
-
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
 rem ****************************************************************************************
