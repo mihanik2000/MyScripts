@@ -57,8 +57,6 @@ set URLSkype="https://download.skype.com/s4l/download/win/Skype-8.65.0.76.exe"
 set URLNotepad="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9/npp.7.9.Installer.exe"
 set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9/npp.7.9.Installer.x64.exe"
 
-set URLthunderbird="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win&lang=ru"
-set URLthunderbird-x64="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win64&lang=ru"
 
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
@@ -259,11 +257,11 @@ ECHO Install Notepad++...
 ECHO .
 ECHO Install Thunderbird...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
-		 Start /wait ThunderbirdSetup-x64.exe -ms
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup68.5.0-x64.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0-x64.exe"
+		 Start /wait ThunderbirdSetup68.5.0-x64.exe -ms
 	 ) else (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
- 		Start /wait ThunderbirdSetup.exe -ms
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup68.5.0.exe" "http://repo.mihanik.net/MozillaTB/ThunderbirdSetup68.5.0.exe"
+ 		Start /wait ThunderbirdSetup68.5.0.exe -ms
  	)
 
 ECHO .
