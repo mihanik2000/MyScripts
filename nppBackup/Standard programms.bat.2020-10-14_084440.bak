@@ -54,9 +54,8 @@ set URLGoogleChrome="http://repo.mihanik.net/ChromeSetup.exe"
 
 set URLSkype="https://download.skype.com/s4l/download/win/Skype-8.65.0.76.exe"
 
-set URLNotepad="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9/npp.7.9.Installer.exe"
-set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9/npp.7.9.Installer.x64.exe"
-
+set URLNotepad="https://github-production-release-asset-2e65be.s3.amazonaws.com/33014811/831bff80-0125-11eb-9ff5-322a1628d935?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201013T042523Z&X-Amz-Expires=300&X-Amz-Signature=288d66ecac7896446c67af567f4db7a15dfa5f2994c722f903707cf6da891898&X-Amz-SignedHeaders=host&actor_id=2175935&key_id=0&repo_id=33014811&response-content-disposition=attachment%3B%20filename%3Dnpp.7.9.Installer.exe&response-content-type=application%2Foctet-stream"
+set URLNotepad-x64="https://github-production-release-asset-2e65be.s3.amazonaws.com/33014811/6bdd1200-0125-11eb-907b-ef78557b21b3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201013T042716Z&X-Amz-Expires=300&X-Amz-Signature=a64f007d7ca163edb91f9c06d0f81e797612f70c53e9da924682a28fd6c42901&X-Amz-SignedHeaders=host&actor_id=2175935&key_id=0&repo_id=33014811&response-content-disposition=attachment%3B%20filename%3Dnpp.7.9.Installer.x64.exe&response-content-type=application%2Foctet-stream"
 
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
