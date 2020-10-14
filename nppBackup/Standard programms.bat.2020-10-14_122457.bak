@@ -276,42 +276,42 @@ ECHO Install Skype
 ECHO .
 ECHO Install Notepad++...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
+		wget.exe %URLNotepad-x64% -O "%MyFolder%\npp-x64.exe"
 		 Start /wait npp-x64.exe /S
 	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\npp.exe" %URLNotepad%
+		wget %URLNotepad% -O "%MyFolder%\npp.exe"
  		Start /wait npp.exe /S
  	)
 
 ECHO .
 ECHO Install Thunderbird...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
+		wget.exe -O "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
 		 Start /wait ThunderbirdSetup-x64.exe -ms
 	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
+		wget -O "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
  		Start /wait ThunderbirdSetup.exe -ms
  	)
 
 ECHO .
 ECHO Install FirefoxSetup...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
+		wget.exe -O "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
 		 Start /wait FirefoxSetup.x64.exe /SILENT
 	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
+		wget.exe -O "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
 ECHO .
 ECHO Install LiteManager Pro...
-	wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
+	wget.exe -O "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
  	Start /wait LiteManagerPro-Server.msi /passive	
 	sc start ROMService
 
 ECHO .
 ECHO Install Adobe Acrobat Reader...
-		wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
+		wget.exe -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
 REM ECHO ...
@@ -337,12 +337,12 @@ rem )
 
 ECHO .
 ECHO Install K-Lite_Codec_Pack...
-		wget.exe --no-check-certificate -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
+		wget.exe -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" "http://repo.mihanik.net/K-Lite/K-Lite_Codec_Pack_1425_Mega.exe"
 		Start /wait K-Lite_Codec_Pack_Mega.exe /silent
 
 ECHO .
 ECHO Install AIMP...
-		wget.exe --no-check-certificate -O "%MyFolder%\aimp.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
+		wget.exe -O "%MyFolder%\aimp.exe" "http://repo.mihanik.net/Aimp/aimp_4.60.2177.exe"
 		Start /wait aimp.exe /AUTO /SILENT
 
 :CONTINUE
