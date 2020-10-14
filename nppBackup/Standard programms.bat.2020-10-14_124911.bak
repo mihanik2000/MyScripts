@@ -61,8 +61,8 @@ set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/relea
 set URLthunderbird="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win&lang=ru"
 set URLthunderbird-x64="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win64&lang=ru"
 
-set URLFirefoxSetup="https://yandex.ru/firefox/download?from=lp_s"
-set URLFirefoxSetup-x64="hhttps://yandex.ru/firefox/download?from=lp_s"
+set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win32/ru/Firefox%20Setup%2081.0.2.exe"
+set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win64/ru/Firefox%20Setup%2081.0.2.exe"
 
 set URLWget="https://eternallybored.org/misc/wget/1.20.3/32/wget.exe"
 set URLWget-x64="https://eternallybored.org/misc/wget/1.20.3/64/wget.exe"
