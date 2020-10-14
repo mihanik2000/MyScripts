@@ -62,7 +62,7 @@ set URLthunderbird="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL
 set URLthunderbird-x64="https://download.mozilla.org/?product=thunderbird-78.3.2-SSL&os=win64&lang=ru"
 
 set URLFirefoxSetup="https://yandex.ru/firefox/download?from=lp_s"
-set URLFirefoxSetup-x64="https://yandex.ru/firefox/download?from=lp_s"
+set URLFirefoxSetup-x64="hhttps://yandex.ru/firefox/download?from=lp_s"
 
 set URLWget="https://eternallybored.org/misc/wget/1.20.3/32/wget.exe"
 set URLWget-x64="https://eternallybored.org/misc/wget/1.20.3/64/wget.exe"
