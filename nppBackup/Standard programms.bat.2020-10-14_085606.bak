@@ -272,10 +272,10 @@ ECHO Install Thunderbird...
 ECHO .
 ECHO Install FirefoxSetup...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.x64.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.x64.exe"
 		 Start /wait FirefoxSetup.x64.exe /SILENT
 	 ) else (
-		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.exe" "http://repo.mihanik.net/Firefox/FirefoxSetup.exe"
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
