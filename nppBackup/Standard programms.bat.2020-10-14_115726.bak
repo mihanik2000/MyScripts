@@ -286,20 +286,20 @@ ECHO Install Notepad++...
 ECHO .
 ECHO Install Thunderbird...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe -O "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
 		 Start /wait ThunderbirdSetup-x64.exe -ms
 	 ) else (
-		wget -O "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
  		Start /wait ThunderbirdSetup.exe -ms
  	)
 
 ECHO .
 ECHO Install FirefoxSetup...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe -O "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
 		 Start /wait FirefoxSetup.x64.exe /SILENT
 	 ) else (
-		wget.exe -O "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
+		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
  		Start /wait FirefoxSetup.exe /SILENT
  	)
 
