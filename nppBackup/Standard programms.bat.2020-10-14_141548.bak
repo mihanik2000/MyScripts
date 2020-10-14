@@ -35,9 +35,7 @@ set MyUserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (K
 set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
 set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
 
-
-rem set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
-set URLndp48="https://go.microsoft.com/fwlink/?linkid=2088631"
+set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 
 set URLduplicati="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x86.msi"
 set URLduplicati-x64="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18-x64.msi"
