@@ -35,6 +35,7 @@ set MyUserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (K
 set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
 set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
 
+
 set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 rem set URLndp48="https://go.microsoft.com/fwlink/?linkid=2088631"
 
