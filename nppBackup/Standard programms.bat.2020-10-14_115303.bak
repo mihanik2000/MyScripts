@@ -64,10 +64,6 @@ set URLthunderbird-x64="https://download.mozilla.org/?product=thunderbird-78.3.2
 set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win32/ru/Firefox%20Setup%2081.0.2.exe"
 set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/81.0.2/win64/ru/Firefox%20Setup%2081.0.2.exe"
 
-set URLWget="https://eternallybored.org/misc/wget/1.20.3/32/wget.exe"
-set URLWget-x64="https://eternallybored.org/misc/wget/1.20.3/64/wget.exe"
-
-
 rem ****************************************************************************************
 rem Настраиваем учётные записи пользователей на компьютере
 rem ****************************************************************************************
@@ -170,27 +166,8 @@ PATH=%ProgramFiles%\curl\;%Path%
 
 rem Добавляем утилиту curl.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="curl"
-netsh firewall add allowedprogram "%ProgramFiles%\curl\curl.exe" curl
+netsh firewall add allowedprogram "%ProgramFiles%\curl\curl.exe" Certutil
 netsh advfirewall firewall add rule name="curl" dir=in action=allow program="%ProgramFiles%\curl\curl.exe"
-
-ECHO Install wget...
-ECHO .
-mkdir  "%ProgramFiles%\wget\"
-ECHO .
- If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -A %MyUserAgent% -k -o "%ProgramFiles%\wget\wget.exe" %URLWget-x64%
-	) else (
-		curl.exe -A %MyUserAgent% -k -o "%ProgramFiles%\wget\wget.exe" %URLWget%
-	)
-
-rem Добавим путь к wget в path
-setx PATH "%ProgramFiles%\wget\;%Path%"
-PATH=%ProgramFiles%\wget\;%Path%
-
-rem Добавляем утилиту wget.exe в исключения брандмауера Windows
-netsh advfirewall firewall del rule name="wget"
-netsh firewall add allowedprogram "%ProgramFiles%\wget\wget.exe" wget
-netsh advfirewall firewall add rule name="wget" dir=in action=allow program="%ProgramFiles%\wget\wget.exe"
 
 ECHO .
 ECHO Install 7-Zip...
