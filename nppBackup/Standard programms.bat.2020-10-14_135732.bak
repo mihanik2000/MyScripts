@@ -51,8 +51,7 @@ set URLLibreOffice-helppack-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffic
 
 set URLuncomsetup="https://unrealcommander.org/download/evolution/uncomsetup3.57(build1486).exe"
 
-set URLGoogleChrome="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B5E813859-E748-6A1E-715A-14E59A2D35C5%7D%26lang%3Den%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dtrue%26ap%3Dstable-arch_x86-statsdef_0%26brand%3DGCEA/dl/chrome/install/googlechromestandaloneenterprise.msi"
-set URLGoogleChrome-x64="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B5E813859-E748-6A1E-715A-14E59A2D35C5%7D%26lang%3Den%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dtrue%26ap%3Dx64-stable-statsdef_0%26brand%3DGCEA/dl/chrome/install/googlechromestandaloneenterprise64.msi"
+set URLGoogleChrome="http://repo.mihanik.net/ChromeSetup.exe"
 
 set URLSkype="https://download.skype.com/s4l/download/win/Skype-8.65.0.76.exe"
 
@@ -258,7 +257,7 @@ ECHO Install LibreOffice...
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
 		Start /wait LibreOffice_x86.msi  /passive
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
-		Start /wait LibreOffice_x86_helppack_ru.msi /passive
+		Start /wait LibreOffice_x86_helppack_ru.msi  /passive
 	)
 
 ECHO .
@@ -266,20 +265,10 @@ ECHO Install Unreal Commander...
 		wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
 		start uncomsetup.exe /SILENT
 
-REM ECHO .
-REM ECHO Install Google Chrome...
-	REM wget.exe --no-check-certificate -O "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome-x64%
-	REM start /wait ChromeSetup.exe /silent /install
-
 ECHO .
 ECHO Install Google Chrome...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\npp-x64.exe" %URLGoogleChrome-x64%
-		Start /wait googlechromestandaloneenterprise64.msi /passive
-	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise.msi" %URLGoogleChrome%
- 		Start /wait googlechromestandaloneenterprise.msi /passive
- 	)
+	wget.exe --no-check-certificate -O "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome%
+	start /wait ChromeSetup.exe /silent /install
 
 ECHO .
 ECHO Install Skype
