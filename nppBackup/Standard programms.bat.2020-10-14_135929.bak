@@ -274,7 +274,7 @@ REM ECHO Install Google Chrome...
 ECHO .
 ECHO Install Google Chrome...
 	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise64.msi" %URLGoogleChrome-x64%
+		wget.exe --no-check-certificate -O "%MyFolder%\npp-x64.exe" %URLGoogleChrome-x64%
 		Start /wait googlechromestandaloneenterprise64.msi /passive
 	 ) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise.msi" %URLGoogleChrome%
