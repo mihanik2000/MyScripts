@@ -202,10 +202,10 @@ ECHO Install 7-Zip...
 ECHO .
  If exist "%SystemDrive%\Program Files (x86)" (
 		wget.exe --no-check-certificate -O "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
-		start /wait 7z-x64.msi /passive /norestart
+		start /wait 7z-x64.msi /passive
 	) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\7z.msi" %URL7Zip%
-		start /wait 7z.msi /passive /norestart
+		start /wait 7z.msi /passive
 	)
 
 ECHO Install dotNetFx3.5...
@@ -220,10 +220,10 @@ ECHO .
 ECHO Install Duplicati...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		wget.exe --no-check-certificate -O "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
-		Start /wait duplicati-x64.msi /passive /norestart
+		Start /wait duplicati-x64.msi /passive
 	 ) else (
  		wget.exe --no-check-certificate -O "%MyFolder%\duplicati-x86.msi" %URLduplicati%
-		Start /wait duplicati-x86.msi  /passive /norestart
+		Start /wait duplicati-x86.msi  /passive
  	)
 
 rem Исключение сетевого экрана для Duplicati
@@ -252,14 +252,14 @@ ECHO .
 ECHO Install LibreOffice...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
-		Start /wait LibreOffice_x64.msi  /passive /norestart
+		Start /wait LibreOffice_x64.msi  /passive
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
-		Start /wait LibreOffice_x64_helppack_ru.msi  /passive /norestart
+		Start /wait LibreOffice_x64_helppack_ru.msi  /passive
 	) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
-		Start /wait LibreOffice_x86.msi  /passive /norestart
+		Start /wait LibreOffice_x86.msi  /passive
 		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
-		Start /wait LibreOffice_x86_helppack_ru.msi /passive /norestart
+		Start /wait LibreOffice_x86_helppack_ru.msi /passive
 	)
 
 ECHO .
@@ -276,10 +276,10 @@ ECHO .
 ECHO Install Google Chrome...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise64.msi" %URLGoogleChrome-x64%
-		Start /wait googlechromestandaloneenterprise64.msi /passive /norestart
+		Start /wait googlechromestandaloneenterprise64.msi /passive
 	 ) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise.msi" %URLGoogleChrome%
- 		Start /wait googlechromestandaloneenterprise.msi /passive /norestart
+ 		Start /wait googlechromestandaloneenterprise.msi /passive
  	)
 
 ECHO .
@@ -320,7 +320,7 @@ ECHO Install FirefoxSetup...
 ECHO .
 ECHO Install LiteManager Pro...
 	wget.exe --no-check-certificate -O "%MyFolder%\LiteManagerPro-Server.msi" "http://repo.mihanik.net/LiteManager/LiteManagerPro-Server.msi"
- 	Start /wait LiteManagerPro-Server.msi /passive /norestart	
+ 	Start /wait LiteManagerPro-Server.msi /passive	
 	sc start ROMService
 
 ECHO .
@@ -366,8 +366,6 @@ ECHO Install AIMP...
 	
 :END
 
-ping -n 10 127.0.0.1 >> nul
-
-shutdown -r -f -t 00
+PAUSE
 
 EXIT /B
