@@ -285,7 +285,7 @@ ECHO Install Google Chrome...
 ECHO .
 ECHO Install Skype
 	wget.exe --no-check-certificate -O "%MyFolder%\Skype.exe" %URLSkype%
-	start /wait Skype.exe /silent
+	start /wait Skype.exe  /silent
 
 ECHO .
 ECHO Install Notepad++...
