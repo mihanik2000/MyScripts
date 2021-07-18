@@ -34,8 +34,14 @@ IF NOT %HasAdminRights%==1 (
 REM Включение режима электропитания "Высокая производительность"
 CALL %ScriptPath%\Powercfg\EnableHighPerformance.bat
 
+REM Отключаем спящий режим
+CALL %ScriptPath%\Powercfg\DisableHibernation
+
 REM Настраиваем учётные записи пользователей на компьютере
-CALL %ScriptPath%\UsersManagament\SettingUpUsersAccounts.bat
+CALL %ScriptPath%\UserManagement\SettingUpUsersAccounts.bat
+
+REM Запланируем ежедневное выключение в полночь
+CALL %ScriptPath%\WindowsScheduler\EnableDailyShutdown.bat
 
 :CONTINUE
     ECHO .
