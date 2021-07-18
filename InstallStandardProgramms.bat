@@ -14,8 +14,11 @@ REM ****************************************
 
 REM Устанавливаем значение некоторых переменных
 
-REM Папка, в которой расположен скрипт
+REM Получаем имя папки, в которой расположен скрипт
 set ScriptPath=%~dp0
+
+REM Папка для временного хранения установичных или скачанных файлов
+set MyFolder=%SystemRoot%\TMP\Mihanikus
 
 REM Проверяем наличие у пользователя админских прав...
 SET HasAdminRights=0
@@ -38,12 +41,21 @@ REM Отключаем спящий режим
 CALL %ScriptPath%\Powercfg\DisableHibernation
 
 REM Настраиваем учётные записи пользователей на компьютере
-CALL %ScriptPath%\UserManagement\SettingUpUsersAccounts.bat
+CALL %ScriptPath%\UserManagement\SettingUpUserAccounts.bat
 
 REM Запланируем ежедневное выключение в полночь
 CALL %ScriptPath%\WindowsScheduler\EnableDailyShutdown.bat
 
-:CONTINUE
+REM Выполняем минимальную настройку межсетевого экрана
+CALL %ScriptPath%\WindowsFirewall\InitialFirewallSetup.bat
+
+REM Добавляем утилиту certutil.exe в исключения межсетевого экрана Windows
+CALL %ScriptPath%\WindowsFirewall\AddCertutilToWindowsFirewallExceptions.bat
+
+REM Настроим возможность подключаться по RDP
+CALL %ScriptPath%\WindowsServices\EnableRDPService.bat
+
+
     ECHO .
     ECHO Всё!
     ECHO .

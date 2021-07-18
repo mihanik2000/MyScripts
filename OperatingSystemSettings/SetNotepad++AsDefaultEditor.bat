@@ -7,12 +7,11 @@ REM https://mihanik.net
 REM
 REM Require administrator rights: YES
 REM
+REM Делаем Notepad++ редактором по умолчанию
+REM
 REM ****************************************
 
-rem ****************************************************************************************
 rem Проверяем наличие у пользователя админских прав...
-rem ****************************************************************************************
-
 SET HasAdminRights=0
 
 FOR /F %%i IN ('WHOAMI /PRIV /NH') DO (
@@ -33,6 +32,6 @@ echo "A reboot is required to apply changes"
 
 :END
 
-pause 
+timeout 3 >> nul
 
 EXIT /B

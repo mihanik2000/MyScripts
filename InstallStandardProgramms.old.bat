@@ -73,50 +73,6 @@ set URLaimp="https://www.aimp.ru/?do=download.file&id=4"
 
 set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
 
-rem Включаем ADMIN шару
-reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t reg_sz /d 1 /f
-
-rem Включим межсетевой экран
-netsh advfirewall set allprofiles state on
-
-rem Разрешим отвечать на ping 
-netsh firewall set icmpsetting 8
-
-rem ****************************************************************************************
-rem Настроим возможность подключаться по RDP
-rem ****************************************************************************************
-
-rem Включим возможность использования RDP
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-     
-rem Включим возможность использования и удалённого помощника
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
-
-rem Исключение сетевого экрана для RDP
-netsh advfirewall firewall del rule name="AlowRDP"
-netsh firewall del portopening tcp 3389
-
-netsh firewall set service remoteadmin enable
-netsh firewall set service remotedesktop enable
-
-netsh advfirewall firewall add rule name="AlowRDP" protocol="TCP" localport=3389 action=allow dir=IN
-netsh firewall set portopening tcp 3389 AlowRDP enable 
-
-Rem укажем режим запуска службы RDP  в auto
-sc config TermService start= auto
-
-rem Запустим службу RDP
-net start TermService
-
-rem Добавляем утилиту certutil.exe в исключения брандмауера Windows
-netsh advfirewall firewall del rule name="Certutil"
-netsh firewall add allowedprogram "C:\Windows\System32\certutil.exe" Certutil
-netsh advfirewall firewall add rule name="Certutil" dir=in action=allow program="C:\Windows\System32\certutil.exe"
-
-rem ****************************************************************************************
-rem Начинаем устанавливать все программы по очереди
-rem ****************************************************************************************
-
 rem Переходим на системный диск
 %SystemDrive%
 
