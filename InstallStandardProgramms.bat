@@ -76,6 +76,9 @@ CALL %ScriptPath%\ProgramManagement\Duplicati-Install.bat
 REM Установим LibreOffice
 CALL %ScriptPath%\ProgramManagement\LibreOffice-Install.bat
 
+REM Установим Java SE Runtime Environment
+CALL %ScriptPath%\ProgramManagement\JavaRE-Install.bat
+
     ECHO .
     ECHO Всё!
     ECHO .
