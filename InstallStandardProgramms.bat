@@ -70,6 +70,11 @@ CALL %ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat
 REM Установим 7Zip
 CALL %ScriptPath%\ProgramManagement\7Zip-Install.bat
 
+REM Установим Duplicati 2
+CALL %ScriptPath%\ProgramManagement\Duplicati-Install.bat
+
+REM Установим LibreOffice
+CALL %ScriptPath%\ProgramManagement\LibreOffice-Install.bat
 
     ECHO .
     ECHO Всё!

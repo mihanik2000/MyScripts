@@ -1,39 +1,5 @@
-@echo off
 
-Rem Скрипт установки стандартного пакета программ с моего репозитория
-
-rem Windows XP не поддерживается!!!
-ver | find "5.1."
-
-If %errorlevel%==0  (
-	Echo Windows XP unsupported!!!
-	Exit /b 1
- ) 
-
-rem ****************************************************************************************
-rem Проверяем наличие у пользователя админских прав...
-rem ****************************************************************************************
-
-SET HasAdminRights=0
-FOR /F %%i IN ('WHOAMI /PRIV /NH') DO (
-	IF "%%i"=="SeTakeOwnershipPrivilege" SET HasAdminRights=1
-)
-
-IF NOT %HasAdminRights%==1 (
-	ECHO .
-	ECHO You need administrator rights to run!!!
-	ECHO .
-	GOTO END
-)
-
-rem ****************************************************************************************
-rem Описываем переменные.
-rem ****************************************************************************************
-set MyFolder=%SystemRoot%\TMP\Mihanikus
 set MyUserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
-
-set URL7Zip="https://www.7-zip.org/a/7z1900.msi"
-set URL7Zip-x64="https://www.7-zip.org/a/7z1900-x64.msi"
 
 set URLndp48="http://repo.mihanik.net/Microsoft/Microsoft_NET/ndp48-x86-x64-allos-enu.exe"
 rem set URLndp48="https://go.microsoft.com/fwlink/?linkid=2088631"
@@ -73,46 +39,6 @@ set URLaimp="https://www.aimp.ru/?do=download.file&id=4"
 
 set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
 
-ECHO .
-ECHO Install 7-Zip...
-ECHO .
- If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\7z-x64.msi" %URL7Zip-x64%
-		start /wait 7z-x64.msi /passive /norestart
-	) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\7z.msi" %URL7Zip%
-		start /wait 7z.msi /passive /norestart
-	)
-
-ECHO Install dotNetFx3.5...
-	Dism /online /enable-feature /featurename:NetFx3
-
-ECHO .	
-ECHO Install dotNetFx4.8...
-	wget.exe --no-check-certificate -O "%MyFolder%\ndp48.exe" %URLndp48%
-	Start /wait ndp48.exe /q /norestart
-	
-ECHO .
-ECHO Install Duplicati...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\duplicati-x64.msi" %URLduplicati-x64%
-		Start /wait duplicati-x64.msi /passive /norestart
-	 ) else (
- 		wget.exe --no-check-certificate -O "%MyFolder%\duplicati-x86.msi" %URLduplicati%
-		Start /wait duplicati-x86.msi  /passive /norestart
- 	)
-
-rem Исключение сетевого экрана для Duplicati
-netsh advfirewall firewall del rule name="Duplicati"
-netsh firewall del portopening tcp 8200
-netsh advfirewall firewall add rule name="Duplicati" protocol="TCP" localport=8200 action=allow dir=IN
-netsh firewall set portopening tcp 8200 Duplicati enable 
-
-"%ProgramFiles%\Duplicati 2\Duplicati.WindowsService.exe" install
-
-sc start Duplicati
-
-del /q /s "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\Duplicati 2.lnk"
 
 ECHO .
 ECHO Install Java SE Runtime Environment...
@@ -122,20 +48,6 @@ ECHO Install Java SE Runtime Environment...
 	) else (
 		wget.exe --no-check-certificate -O "%MyFolder%\jre.exe" %URLjre%
 		Start /wait jre.exe  /s
-	)
-
-ECHO .
-ECHO Install LibreOffice...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
-		Start /wait LibreOffice_x64.msi  /passive /norestart
-		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
-		Start /wait LibreOffice_x64_helppack_ru.msi  /passive /norestart
-	) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
-		Start /wait LibreOffice_x86.msi  /passive /norestart
-		wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
-		Start /wait LibreOffice_x86_helppack_ru.msi /passive /norestart
 	)
 
 ECHO .
@@ -204,26 +116,6 @@ ECHO Install Adobe Acrobat Reader...
 		wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
 		Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
-REM ECHO ...
-REM ECHO Install Adobe flash player
-REM ECHO ...
-
-rem Windows 7?
-rem ver | find "6.1."
-
-rem If %errorlevel%==0  (
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Chrome-install_flash_player_ppapi.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Explorer-install_flash_player_ax.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Explorer-install_flash_player_ax.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\WinXP-7-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/WinXP-7-Firefox-install_flash_player.exe"
-rem 		Start /wait WinXP-7-Chrome-install_flash_player_ppapi.exe /VERYSILENT
-rem 		Start /wait WinXP-7-Explorer-install_flash_player_ax.exe /VERYSILENT
-rem 		Start /wait WinXP-7-Firefox-install_flash_player.exe /VERYSILENT
-rem  ) else (
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Chrome-install_flash_player_ppapi.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Chrome-install_flash_player_ppapi.exe"
-rem 		"%ProgramFiles%\curl\curl.exe" -k -o "%MyFolder%\Win8-10-Firefox-install_flash_player.exe" "http://repo.mihanik.net/Adobe_Flash_Player/Win8-10-Firefox-install_flash_player.exe"
-rem 		Start /wait Win8-10-Chrome-install_flash_player_ppapi.exe /VERYSILENT
-rem 		Start /wait Win8-10-Firefox-install_flash_player.exe /VERYSILENT
-rem )
 
 ECHO .
 ECHO Install K-Lite_Codec_Pack...
@@ -235,22 +127,3 @@ ECHO Install AIMP...
 		wget.exe --no-check-certificate -O "%MyFolder%\aimp.exe" %URLaimp%
 		Start /wait aimp.exe /AUTO /SILENT
 
-REM Включим защитника Windows
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableBehaviorMonitoring /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableOnAccessProtection /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableScanOnRealtimeEnable /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableIOAVProtection /t REG_DWORD /d 0 /f
-
-:CONTINUE
-	ECHO .
-	ECHO Всё!
-	ECHO .
-	
-:END
-
-ping -n 10 127.0.0.1 >> nul
-
-shutdown -r -f -t 00
-
-EXIT /B

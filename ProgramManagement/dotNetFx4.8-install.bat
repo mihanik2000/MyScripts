@@ -47,6 +47,10 @@ Start /wait ndp48.exe /q /norestart
 
 :ENDSUB
 
+echo .
+echo Done!
+echo .
+
 timeout 3 >> nul
 
 EXIT /B
