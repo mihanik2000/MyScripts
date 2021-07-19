@@ -61,12 +61,14 @@ CALL %ScriptPath%\ProgramManagement\Curl-Install.bat
 REM Установим Wget
 CALL %ScriptPath%\ProgramManagement\Wget-Install.bat
 
-rem Переходим на системный диск
-%SystemDrive%
+REM Установим dotNetFx3.5
+CALL %ScriptPath%\ProgramManagement\dotNetFx3.5-install.bat
 
-rem Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%"
-cd "%MyFolder%"
+REM Установим dotNetFx4.8
+CALL %ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat
+
+REM Установим 7Zip
+CALL %ScriptPath%\ProgramManagement\7Zip-Install.bat
 
 
     ECHO .

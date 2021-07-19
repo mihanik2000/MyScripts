@@ -25,12 +25,16 @@ IF NOT %HasAdminRights%==1 (
 	GOTO ENDSUB
 )
 
-REM Отключим защитника Windows
+REM Включим защитника Windows через реестр
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableBehaviorMonitoring /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableOnAccessProtection /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableScanOnRealtimeEnable /t REG_DWORD /d 0 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableIOAVProtection /t REG_DWORD /d 0 /f
+
+REM Включим защитника Windows через powershell
+powershell -command "Set-MpPreference -DisableRealtimeMonitoring $false"
+powershell -command "Set-MpPreference -DisableIOAVProtection $false"
 
 :CONTINUE
 	ECHO .
