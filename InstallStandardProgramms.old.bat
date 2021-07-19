@@ -73,61 +73,6 @@ set URLaimp="https://www.aimp.ru/?do=download.file&id=4"
 
 set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
 
-rem Переходим на системный диск
-%SystemDrive%
-
-rem Создаём папку для хранения дистрибутивов и переходим в неё
-mkdir "%MyFolder%"
-cd "%MyFolder%"
-
-ECHO Install curl...
-ECHO .
-mkdir  "%ProgramFiles%\curl\"
-
-If exist "%SystemDrive%\Program Files (x86)" (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.dll" "%ProgramFiles%\curl\libcurl-x64.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.def" "%ProgramFiles%\curl\libcurl-x64.def"
-
- ) else (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.dll" "%ProgramFiles%\curl\libcurl.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.def" "%ProgramFiles%\curl\libcurl.def"
-)
-
-rem Установим скачанный сертификат для всех пользователей
-rem certutil -f -addstore "My" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-
-rem Добавим путь к curl в path
-setx PATH "%ProgramFiles%\curl\;%Path%"
-PATH=%ProgramFiles%\curl\;%Path%
-
-rem Добавляем утилиту curl.exe в исключения брандмауера Windows
-netsh advfirewall firewall del rule name="curl"
-netsh firewall add allowedprogram "%ProgramFiles%\curl\curl.exe" curl
-netsh advfirewall firewall add rule name="curl" dir=in action=allow program="%ProgramFiles%\curl\curl.exe"
-
-ECHO Install wget...
-ECHO .
-mkdir  "%ProgramFiles%\wget\"
-ECHO .
- If exist "%SystemDrive%\Program Files (x86)" (
-		curl.exe -k -o "%ProgramFiles%\wget\wget.exe" %URLWget-x64%
-	) else (
-		curl.exe -k -o "%ProgramFiles%\wget\wget.exe" %URLWget%
-	)
-
-rem Добавим путь к wget в path
-setx PATH "%ProgramFiles%\wget\;%Path%"
-PATH=%ProgramFiles%\wget\;%Path%
-
-rem Добавляем утилиту wget.exe в исключения брандмауера Windows
-netsh advfirewall firewall del rule name="wget"
-netsh firewall add allowedprogram "%ProgramFiles%\wget\wget.exe" wget
-netsh advfirewall firewall add rule name="wget" dir=in action=allow program="%ProgramFiles%\wget\wget.exe"
-
 ECHO .
 ECHO Install 7-Zip...
 ECHO .

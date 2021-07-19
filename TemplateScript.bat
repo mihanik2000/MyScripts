@@ -6,7 +6,8 @@ REM
 REM https://mihanik.net
 REM
 REM        Require administrator rights: YES
-REM Antivirus software must be disabled: YES (!!!)
+REM Antivirus software must be disabled: Not necessary
+REM                        Dependencies: No
 REM
 REM Описание
 REM
