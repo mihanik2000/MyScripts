@@ -41,51 +41,6 @@ set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
 
 
 ECHO .
-ECHO Install Java SE Runtime Environment...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\jre-x64.exe" %URLjre-x64%
-		Start /wait jre-x64.exe  /s
-	) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\jre.exe" %URLjre%
-		Start /wait jre.exe  /s
-	)
-
-ECHO .
-ECHO Install Unreal Commander...
-		wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
-		start uncomsetup.exe /SILENT
-
-REM ECHO .
-REM ECHO Install Google Chrome...
-	REM wget.exe --no-check-certificate -O "%MyFolder%\ChromeSetup.exe" %URLGoogleChrome-x64%
-	REM start /wait ChromeSetup.exe /silent /install
-
-ECHO .
-ECHO Install Google Chrome...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise64.msi" %URLGoogleChrome-x64%
-		Start /wait googlechromestandaloneenterprise64.msi /passive /norestart
-	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\googlechromestandaloneenterprise.msi" %URLGoogleChrome%
- 		Start /wait googlechromestandaloneenterprise.msi /passive /norestart
- 	)
-
-ECHO .
-ECHO Install Skype
-	wget.exe --no-check-certificate -O "%MyFolder%\Skype.exe" %URLSkype%
-	start /wait Skype.exe /silent
-
-ECHO .
-ECHO Install Notepad++...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\npp-x64.exe" %URLNotepad-x64%
-		Start /wait npp-x64.exe /S
-	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\npp.exe" %URLNotepad%
- 		Start /wait npp.exe /S
- 	)
-
-ECHO .
 ECHO Install Thunderbird...
 	If exist "%SystemDrive%\Program Files (x86)" (
 		wget.exe --no-check-certificate -O "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%

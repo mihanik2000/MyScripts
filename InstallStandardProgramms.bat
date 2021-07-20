@@ -79,6 +79,15 @@ CALL %ScriptPath%\ProgramManagement\LibreOffice-Install.bat
 REM Установим Java SE Runtime Environment
 CALL %ScriptPath%\ProgramManagement\JavaRE-Install.bat
 
+REM Установим Unreal Commander
+CALL %ScriptPath%\ProgramManagement\UnrealCommander-Install.bat
+
+REM Установим Notepad++
+CALL %ScriptPath%\ProgramManagement\Notepad++-Install.bat
+
+REM Установим Google Chrome
+CALL %ScriptPath%\ProgramManagement\GoogleChrome-Install.bat
+
     ECHO .
     ECHO Всё!
     ECHO .
