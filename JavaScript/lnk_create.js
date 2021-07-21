@@ -1,1 +1,0 @@
-C:/Users/mihanik/Documents/GitHub/ForSoftium/Distr/noarch/lnk_create.js
