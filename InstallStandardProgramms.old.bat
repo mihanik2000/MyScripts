@@ -40,25 +40,15 @@ set URLaimp="https://www.aimp.ru/?do=download.file&id=4"
 set URLKLite="https://files3.codecguide.com/K-Lite_Codec_Pack_1575_Mega.exe"
 
 
-ECHO .
-ECHO Install Thunderbird...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\ThunderbirdSetup-x64.exe" %URLthunderbird-x64%
-		 Start /wait ThunderbirdSetup-x64.exe -ms
-	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\ThunderbirdSetup.exe" %URLthunderbird%
- 		Start /wait ThunderbirdSetup.exe -ms
- 	)
+https://cache-mskm907.cdn.yandex.net/download.cdn.yandex.net/getfirefox/FirefoxSetup.exe
 
-ECHO .
-ECHO Install FirefoxSetup...
-	If exist "%SystemDrive%\Program Files (x86)" (
-		wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
-		 Start /wait FirefoxSetup.x64.exe /SILENT
-	 ) else (
-		wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
- 		Start /wait FirefoxSetup.exe /SILENT
- 	)
+https://cdn.stubdownloader.services.mozilla.com/builds/firefox-stub/ru/win/d541d999f50b31c880a4eb443f8b4635a9e0ddc2bd595f51533f3415426ec8f9/Firefox%20Installer.exe
+
+
+https://cache-mskm908.cdn.yandex.net/download.cdn.yandex.net/mozilla/FirefoxSetup.x64.exe
+
+https://cache-mskm908.cdn.yandex.net/download.cdn.yandex.net/mozilla/FirefoxSetup.exe
+
 
 ECHO .
 ECHO Install LiteManager Pro...

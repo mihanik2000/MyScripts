@@ -88,6 +88,12 @@ CALL %ScriptPath%\ProgramManagement\Notepad++-Install.bat
 REM Установим Google Chrome
 CALL %ScriptPath%\ProgramManagement\GoogleChrome-Install.bat
 
+REM Установим Thunderbird
+CALL %ScriptPath%\ProgramManagement\Thunderbird-Install.bat
+
+REM Установим Firefox
+CALL %ScriptPath%\ProgramManagement\Firefox-Install.bat
+
     ECHO .
     ECHO Всё!
     ECHO .
