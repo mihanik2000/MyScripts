@@ -88,11 +88,23 @@ CALL %ScriptPath%\ProgramManagement\Notepad++-Install.bat
 REM Установим Google Chrome
 CALL %ScriptPath%\ProgramManagement\GoogleChrome-Install.bat
 
+REM Установим Firefox
+CALL %ScriptPath%\ProgramManagement\Firefox-Install.bat
+
 REM Установим Thunderbird
 CALL %ScriptPath%\ProgramManagement\Thunderbird-Install.bat
 
-REM Установим Firefox
-CALL %ScriptPath%\ProgramManagement\Firefox-Install.bat
+REM Установим LiteManager Pro
+CALL %ScriptPath%\ProgramManagement\LiteManager-Install.bat
+
+REM Установим Adobe Acrobat Reader
+CALL %ScriptPath%\ProgramManagement\AcrobatReader-Install.bat
+
+REM Установим K-Lite_Codec_Pack
+CALL %ScriptPath%\ProgramManagement\KLiteCodecPack-Install.bat
+
+REM Установим AIMP
+CALL %ScriptPath%\ProgramManagement\AIMP-Install.bat
 
     ECHO .
     ECHO Всё!
