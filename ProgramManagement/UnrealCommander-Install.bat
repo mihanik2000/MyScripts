@@ -48,7 +48,6 @@ ECHO .
         wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup-x64%
      ) else (
         wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
-        Start /wait npp.exe /S
     )
 
 	start uncomsetup.exe /VERYSILENT /NORESTART /SP- woex

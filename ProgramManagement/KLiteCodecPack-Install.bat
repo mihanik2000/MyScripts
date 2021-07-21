@@ -44,7 +44,7 @@ ECHO Install K-Lite_Codec_Pack...
 ECHO .
 
     wget.exe --no-check-certificate -O "%MyFolder%\K-Lite_Codec_Pack_Mega.exe" %URLKLite%
-    Start /wait K-Lite_Codec_Pack_Mega.exe /silen
+    Start /wait K-Lite_Codec_Pack_Mega.exe /silent
 
 :ENDSUB
 
