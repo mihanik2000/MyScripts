@@ -9,7 +9,7 @@ REM		   Require administrator rights: YES
 REM Antivirus software must be disabled: Not necessary
 REM						   Dependencies: No
 REM
-REM Uninstall Edge Chromium
+REM Uninstall One Drive
 REM
 REM ****************************************
 
@@ -29,28 +29,20 @@ IF NOT %HasAdminRights%==1 (
 	GOTO ENDSUB
 )
 
+rem ****************************************************************************************
+rem Удаляем One Drive
+rem ****************************************************************************************
+
 ECHO .
-ECHO Удаляем Edge Chromium...
+ECHO Удаляем One Drive...
 ECHO .
 
- If exist "%programfiles(x86)%" (
-		cd "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application"
-	) else (
-		cd "%SystemDrive%\Program Files\Microsoft\Edge\Application"
-	)
-
-dir /b | findstr [0-9] > ver.txt
-SET /p myvar= < ver.txt
-cd %myvar%\Installer
-setup.exe -uninstall -system-level -verbose-logging -force-uninstall
-
-timeout 10 >> nul
-
-Rem Запретим в дальнейшем создавать ярлык для Microsoft Edge на рабочем столе
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer /v "DisableEdgeDesktopShortcutCreation" /t REG_DWORD /d "1" /f
-
-rem Запрещаем обновляться до Edge Chromium
-reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EdgeUpdate" /v DoNotUpdateToEdgeWithChromium /t REG_DWORD /d 1 /f
+taskkill /f /im OneDrive.exe
+	If exist "%SystemDrive%\Program Files (x86)" (
+		start "Uninstall One Drive..." /wait %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+	 ) else (
+ 		start "Uninstall One Drive..." /wait %SystemRoot%\System32\OneDriveSetup.exe /uninstall
+ 	)
 
 :ENDSUB
 
