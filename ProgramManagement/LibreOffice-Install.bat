@@ -30,11 +30,11 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLLibreOffice="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.1.4/win/x86/LibreOffice_7.1.4_Win_x86.msi"
-set URLLibreOffice-helppack="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.1.4/win/x86/LibreOffice_7.1.4_Win_x86_helppack_ru.msi"
+set URLLibreOffice="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.2.1/win/x86/LibreOffice_7.2.1_Win_x86.msi"
+set URLLibreOffice-helppack="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.2.1/win/x86/LibreOffice_7.2.1_Win_x86_helppack_ru.msi"
 
-set URLLibreOffice-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.1.4/win/x86_64/LibreOffice_7.1.4_Win_x64.msi"
-set URLLibreOffice-helppack-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.1.4/win/x86_64/LibreOffice_7.1.4_Win_x64_helppack_ru.msi"
+set URLLibreOffice-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.2.1/win/x86_64/LibreOffice_7.2.1_Win_x64.msi"
+set URLLibreOffice-helppack-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.2.1/win/x86_64/LibreOffice_7.2.1_Win_x64_helppack_ru.msi"
 
 REM Переходим на системный диск
 %SystemDrive%
