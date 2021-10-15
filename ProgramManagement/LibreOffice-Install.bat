@@ -30,11 +30,11 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLLibreOffice="https://www.libreoffice.org/donate/dl/win-x86/7.2.2/ru/LibreOffice_7.2.2_Win_x86.msi"
-set URLLibreOffice-helppack="https://download.documentfoundation.org/libreoffice/stable/7.2.2/win/x86/LibreOffice_7.2.2_Win_x86_helppack_ru.msi"
+set URLLibreOffice="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x86.msi"
+set URLLibreOffice-helppack="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x86_helppack_ru.msi"
 
-set URLLibreOffice-x64="https://www.libreoffice.org/donate/dl/win-x86_64/7.2.2/ru/LibreOffice_7.2.2_Win_x64.msi"
-set URLLibreOffice-helppack-x64="https://download.documentfoundation.org/libreoffice/stable/7.2.2/win/x86_64/LibreOffice_7.2.2_Win_x64_helppack_ru.msi"
+set URLLibreOffice-x64="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x64.msi"
+set URLLibreOffice-helppack-x64="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x64_helppack_ru.msi"
 
 REM Переходим на системный диск
 %SystemDrive%
