@@ -30,31 +30,28 @@ echo .
 echo Устанавливаем CURL
 echo .
 
-rem Переходим на системный диск
-%SystemDrive%
-
 REM Создаём папку для CURL
 mkdir  "%ProgramFiles%\Curl\"
 
-REM Переходим в созданную папку
-cd "%ProgramFiles%\Curl\"
+REM Получаем имя папки, в которой расположен скрипт и переходим в эту папку
+set CurlScriptPath=%~dp0
+cd  %CurlScriptPath%
 
 REM Скачиваем CURL
 If exist "%SystemDrive%\Program Files (x86)" (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.dll" "%ProgramFiles%\curl\libcurl-x64.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win64/libcurl-x64.def" "%ProgramFiles%\curl\libcurl-x64.def"
-
+	copy /y "..\Distr\curl\win64\libcurl-x64.dll" "%ProgramFiles%\curl\libcurl-x64.dll"
+	copy /y "..\Distr\curl\win64\curl.exe" "%ProgramFiles%\curl\curl.exe"
+	copy /y "..\Distr\curl\win64\curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+	copy /y "..\Distr\curl\win64\libcurl-x64.def" "%ProgramFiles%\curl\libcurl-x64.def"
  ) else (
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.dll" "%ProgramFiles%\curl\libcurl.dll"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl.exe" "%ProgramFiles%\curl\curl.exe"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
-	certutil -urlcache -split -f "http://repo.mihanik.net/curl/win32/libcurl.def" "%ProgramFiles%\curl\libcurl.def"
+ 	copy /y "..\Distr\curl\win32\libcurl.dll" "%ProgramFiles%\curl\libcurl.dll"
+	copy /y "..\Distr\curl\win32\curl.exe" "%ProgramFiles%\curl\curl.exe"
+	copy /y "..\Distr\curl\win32\curl-ca-bundle.crt" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+	copy /y "..\Distr\curl\win32\libcurl.def" "%ProgramFiles%\curl\libcurl.def"
 )
 
 rem Установим скачанный сертификат для всех пользователей
-rem certutil -f -addstore "My" "%ProgramFiles%\curl\curl-ca-bundle.crt"
+certutil -f -addstore "My" "%ProgramFiles%\curl\curl-ca-bundle.crt"
 
 rem Добавим путь к curl в path
 setx PATH "%ProgramFiles%\curl\;%Path%"
