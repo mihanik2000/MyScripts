@@ -30,11 +30,11 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLLibreOffice="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x86.msi"
-set URLLibreOffice-helppack="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x86_helppack_ru.msi"
+set URLLibreOffice="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.5.1/win/x86/LibreOffice_7.5.1_Win_x86.msi"
+rem set URLLibreOffice-helppack="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x86_helppack_ru.msi"
 
-set URLLibreOffice-x64="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x64.msi"
-set URLLibreOffice-helppack-x64="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x64_helppack_ru.msi"
+set URLLibreOffice-x64="http://libreoffice-mirror.rbc.ru/pub/libreoffice/libreoffice/stable/7.5.1/win/x86_64/LibreOffice_7.5.1_Win_x86-64.msi"
+rem set URLLibreOffice-helppack-x64="http://repo.mihanik.net/LibreOffice/LibreOffice_7.2.2_Win_x64_helppack_ru.msi"
 
 REM Переходим на системный диск
 %SystemDrive%
@@ -50,13 +50,13 @@ ECHO .
     If exist "%SystemDrive%\Program Files (x86)" (
         wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64.msi" %URLLibreOffice-x64%
         Start /wait LibreOffice_x64.msi  /passive /norestart
-        wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
-        Start /wait LibreOffice_x64_helppack_ru.msi  /passive /norestart
+        rem wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x64_helppack_ru.msi" %URLLibreOffice-helppack-x64%
+        rem Start /wait LibreOffice_x64_helppack_ru.msi  /passive /norestart
     ) else (
         wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86.msi" %URLLibreOffice%
         Start /wait LibreOffice_x86.msi  /passive /norestart
-        wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
-        Start /wait LibreOffice_x86_helppack_ru.msi /passive /norestart
+        rem wget.exe --no-check-certificate -O "%MyFolder%\LibreOffice_x86_helppack_ru.msi" %URLLibreOffice-helppack%
+        rem Start /wait LibreOffice_x86_helppack_ru.msi /passive /norestart
     )
 
 :ENDSUB

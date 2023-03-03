@@ -30,8 +30,8 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLFirefoxSetup="https://cache-mskm908.cdn.yandex.net/download.cdn.yandex.net/mozilla/FirefoxSetup.exe"
-set URLFirefoxSetup-x64="https://cache-mskm908.cdn.yandex.net/download.cdn.yandex.net/mozilla/FirefoxSetup.x64.exe"
+set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/110.0.1/win32/ru/Firefox%20Setup%20110.0.1.msi"
+set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/110.0.1/win64/ru/Firefox%20Setup%20110.0.1.msi"
 
 REM Переходим на системный диск
 %SystemDrive%
@@ -45,11 +45,11 @@ ECHO Install Firefox...
 ECHO .
 
     If exist "%SystemDrive%\Program Files (x86)" (
-        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.x64.exe" %URLFirefoxSetup-x64%
-         Start /wait FirefoxSetup.x64.exe /SILENT
+        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.x64.msi" %URLFirefoxSetup-x64%
+         Start /wait FirefoxSetup.x64.msi /passive /norestart
      ) else (
-        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.exe" %URLFirefoxSetup%
-        Start /wait FirefoxSetup.exe /SILENT
+        wget.exe --no-check-certificate -O "%MyFolder%\FirefoxSetup.msi" %URLFirefoxSetup%
+        Start /wait FirefoxSetup.msi  /passive /norestart
     )
 
 :ENDSUB
