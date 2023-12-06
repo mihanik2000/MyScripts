@@ -30,8 +30,7 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLuncomsetup="https://x-diesel.com/download/uncomsetup.exe?32"
-set URLuncomsetup-x64="https://x-diesel.com/download/uncomsetup.exe?64"
+set URLuncomsetup="https://unrealcommander.org/download/evolution/uncomsetup3.57(build1497).exe"
 
 REM Переходим на системный диск
 %SystemDrive%
@@ -44,11 +43,7 @@ ECHO .
 ECHO Install Unreal Commander...
 ECHO .
 
-    If exist "%SystemDrive%\Program Files (x86)" (
-        wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup-x64%
-     ) else (
-        wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
-    )
+	wget.exe --no-check-certificate -O "%MyFolder%\uncomsetup.exe" %URLuncomsetup%
 
 	start uncomsetup.exe /VERYSILENT /NORESTART /SP- woex
 
