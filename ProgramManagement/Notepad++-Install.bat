@@ -30,8 +30,8 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLNotepad="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.exe"
-set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+set URLNotepad="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.5.8.Installer.exe"
+set URLNotepad-x64="https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.5.8.Installer.x64.exe"
 
 REM Переходим на системный диск
 %SystemDrive%
