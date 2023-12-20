@@ -35,14 +35,11 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
 
 rem Настроим исключения межсетевого экрана для RDP
 echo Настроим исключения межсетевого экрана для RDP
-netsh advfirewall firewall del rule name="AlowRDP"
-netsh firewall del portopening tcp 3389
 
-netsh firewall set service remoteadmin enable
-netsh firewall set service remotedesktop enable
+netsh advfirewall firewall delete rule name="AllowRDP"
+netsh advfirewall firewall delete protocol=TCP localport=3389
 
-netsh advfirewall firewall add rule name="AlowRDP" protocol="TCP" localport=3389 action=allow dir=IN
-netsh firewall set portopening tcp 3389 AlowRDP enable 
+netsh advfirewall firewall add rule name="AllowRDP" protocol="TCP" localport=3389 action=allow dir=IN
 
 Rem укажем режим запуска службы RDP  в auto
 echo Настроим запуск службы RDP

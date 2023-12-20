@@ -28,9 +28,9 @@ IF NOT %HasAdminRights%==1 (
 )
 
 REM Добавляем утилиту certutil.exe в исключения межсетевого экрана Windows
-netsh advfirewall firewall del rule name="Certutil"
-netsh firewall add allowedprogram "C:\Windows\System32\certutil.exe" Certutil
-netsh advfirewall firewall add rule name="Certutil" dir=in action=allow program="C:\Windows\System32\certutil.exe"
+
+netsh advfirewall firewall delete rule name="Certutil"
+netsh advfirewall firewall add rule name="Certutil" dir=in action=allow program="C:\Windows\System32\certutil.exe" enable=yes
 
 :ENDSUB
 

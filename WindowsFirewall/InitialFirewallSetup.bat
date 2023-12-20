@@ -29,7 +29,7 @@ REM Включим межсетевой экран
 netsh advfirewall set allprofiles state on
 
 REM Разрешим отвечать на ping 
-netsh firewall set icmpsetting 8
+netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol=icmpv4:8,any dir=in action=allow
 
 REM Включаем ADMIN шару
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t reg_sz /d 1 /f
