@@ -55,7 +55,6 @@ PATH=%ProgramFiles%\Wget\;%Path%
 
 rem Добавляем утилиту wget.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="wget"
-netsh firewall add allowedprogram "%ProgramFiles%\Wget\wget.exe" wget
 netsh advfirewall firewall add rule name="wget" dir=in action=allow program="%ProgramFiles%\Wget\wget.exe"
 
 echo .

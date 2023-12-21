@@ -59,7 +59,6 @@ PATH=%ProgramFiles%\curl\;%Path%
 
 rem Добавляем утилиту curl.exe в исключения брандмауера Windows
 netsh advfirewall firewall del rule name="curl"
-netsh firewall add allowedprogram "%ProgramFiles%\Curl\curl.exe" curl
 netsh advfirewall firewall add rule name="curl" dir=in action=allow program="%ProgramFiles%\Curl\curl.exe"
 
 echo .
