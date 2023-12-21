@@ -33,7 +33,7 @@ REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
 set URLNotepad="http://download.notepad-plus-plus.org/repository/8.x/8.5.8/npp.8.5.8.Installer.exe"
-set URLNotepad-x64="http://download.notepad-plus-plus.org/repository/8.x/8.5.8/npp.8.5.8.Installer.arm64.exe"
+set URLNotepad-x64="http://download.notepad-plus-plus.org/repository/8.x/8.5.8/npp.8.5.8.Installer.x64.exe"
 
 REM Переходим на системный диск
 %SystemDrive%
