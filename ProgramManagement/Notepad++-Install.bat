@@ -10,7 +10,9 @@ REM Antivirus software must be disabled: Not necessary
 REM                        Dependencies: You must first run Curl-Install.bat, 7Zip-Install.bat and Wget-Install.bat
 REM
 REM Install Notepad++
-REM
+REM 
+REM Репозиторий программы http://download.notepad-plus-plus.org/repository/8.x/
+REM 
 REM ****************************************
 
 REM Проверяем наличие у пользователя админских прав...
@@ -30,8 +32,8 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLNotepad="https://objects.githubusercontent.com/github-production-release-asset-2e65be/33014811/652a1e58-6578-42c7-a057-bb5d502eba9e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231220T121108Z&X-Amz-Expires=300&X-Amz-Signature=f22e00c6c4d11ffe0a2f5072d160c92500ce135a0b0e960c67ea880d94f0655c&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=33014811&response-content-disposition=attachment%3B%20filename%3Dnpp.8.5.8.Installer.exe&response-content-type=application%2Foctet-stream"
-set URLNotepad-x64="https://objects.githubusercontent.com/github-production-release-asset-2e65be/33014811/494a2864-9861-4d9c-a3db-c2c5c78ae431?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231220T120936Z&X-Amz-Expires=300&X-Amz-Signature=255c4d3d30e7e336c955e411a4b7d16c609dccf4bc1273d93c2da32f59f64e49&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=33014811&response-content-disposition=attachment%3B%20filename%3Dnpp.8.5.8.Installer.x64.exe&response-content-type=application%2Foctet-stream"
+set URLNotepad="http://download.notepad-plus-plus.org/repository/8.x/8.5.8/npp.8.5.8.Installer.exe"
+set URLNotepad-x64="http://download.notepad-plus-plus.org/repository/8.x/8.5.8/npp.8.5.8.Installer.arm64.exe"
 
 REM Переходим на системный диск
 %SystemDrive%

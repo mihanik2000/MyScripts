@@ -49,6 +49,9 @@ CALL %ScriptPath%\WindowsScheduler\EnableDailyShutdown.bat
 REM Выполняем минимальную настройку межсетевого экрана
 CALL %ScriptPath%\WindowsFirewall\InitialFirewallSetup.bat
 
+REM Заблокируем телеметрию Windows
+CALL %ScriptPath%\WindowsFirewall\BlockMicrosoftTelemetry.bat
+
 REM Добавляем утилиту certutil.exe в исключения межсетевого экрана Windows
 CALL %ScriptPath%\WindowsFirewall\AddCertutilToWindowsFirewallExceptions.bat
 
