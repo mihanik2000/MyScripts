@@ -28,8 +28,8 @@ IF NOT %HasAdminRights%==1 (
 )
 
 REM Задаём значения переменных
-set URL7Zip="https://www.7-zip.org/a/7z2201.msi"
-set URL7Zip-x64="https://www.7-zip.org/a/7z2201-x64.msi"
+set URL7Zip="https://www.7-zip.org/a/7z2301.msi"
+set URL7Zip-x64="https://www.7-zip.org/a/7z2301-x64.msi"
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
 REM Переходим на системный диск
