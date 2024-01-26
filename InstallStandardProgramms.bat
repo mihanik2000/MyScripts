@@ -58,6 +58,9 @@ CALL %ScriptPath%\WindowsFirewall\AddCertutilToWindowsFirewallExceptions.bat
 REM Настроим возможность подключаться по RDP
 CALL %ScriptPath%\WindowsServices\EnableRDPService.bat
 
+REM Установим RDP Wrapper
+CALL %ScriptPath%\ProgramManagement\RDPWrapper.bat
+
 REM Установим Curl
 CALL %ScriptPath%\ProgramManagement\Curl-Install.bat
 
