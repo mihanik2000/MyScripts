@@ -36,64 +36,64 @@ sc config DiagTrack start= disabled
 sc stop dmwappushservice
 sc config dmwappushservice start= disabled
 
-echo 127.0.0.1       vortex.data.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       vortex-win.data.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telecommand.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telecommand.telemetry.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       oca.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       oca.telemetry.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       sqm.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       sqm.telemetry.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       watson.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       watson.telemetry.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       redir.metaservices.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       choice.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       choice.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       df.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       reports.wes.df.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       wes.df.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       services.wes.df.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       sqm.df.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       watson.ppe.telemetry.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telemetry.appex.bing.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telemetry.urs.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       telemetry.appex.bing.net:443  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       settings-sandbox.data.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       vortex-sandbox.data.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       survey.watson.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       watson.live.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       watson.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       statsfe2.ws.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       corpext.msitadfs.glbdns2.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       compatexchange.cloudapp.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       cs1.wpc.v0cdn.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       a-0001.a-msedge.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       statsfe2.update.microsoft.com.akadns.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       sls.update.microsoft.com.akadns.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       fe2.update.microsoft.com.akadns.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       diagnostics.support.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       corp.sts.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       statsfe1.ws.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       pre.footprintpredict.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       i1.services.social.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       i1.services.social.microsoft.com.nsatc.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       feedback.windows.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       feedback.microsoft-hohm.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       feedback.search.microsoft.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       rad.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       preview.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       ad.doubleclick.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       ads.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       ads1.msads.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       ads1.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       a.ads1.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       a.ads2.msn.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       adnexus.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       adnxs.com  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       az361816.vo.msecnd.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       az512334.vo.msecnd.net  >> %SystemRoot%\System32\drivers\etc\hosts
-echo 127.0.0.1       ssw.live.com >> %SystemRoot%\System32\drivers\etc\hosts
+(echo 127.0.0.1       vortex.data.microsoft.com
+echo 127.0.0.1       vortex-win.data.microsoft.com
+echo 127.0.0.1       telecommand.telemetry.microsoft.com
+echo 127.0.0.1       telecommand.telemetry.microsoft.com.nsatc.net
+echo 127.0.0.1       oca.telemetry.microsoft.com
+echo 127.0.0.1       oca.telemetry.microsoft.com.nsatc.net
+echo 127.0.0.1       sqm.telemetry.microsoft.com
+echo 127.0.0.1       sqm.telemetry.microsoft.com.nsatc.net
+echo 127.0.0.1       watson.telemetry.microsoft.com
+echo 127.0.0.1       watson.telemetry.microsoft.com.nsatc.net
+echo 127.0.0.1       redir.metaservices.microsoft.com
+echo 127.0.0.1       choice.microsoft.com
+echo 127.0.0.1       choice.microsoft.com.nsatc.net
+echo 127.0.0.1       df.telemetry.microsoft.com
+echo 127.0.0.1       reports.wes.df.telemetry.microsoft.com
+echo 127.0.0.1       wes.df.telemetry.microsoft.com
+echo 127.0.0.1       services.wes.df.telemetry.microsoft.com
+echo 127.0.0.1       sqm.df.telemetry.microsoft.com
+echo 127.0.0.1       telemetry.microsoft.com
+echo 127.0.0.1       watson.ppe.telemetry.microsoft.com
+echo 127.0.0.1       telemetry.appex.bing.net
+echo 127.0.0.1       telemetry.urs.microsoft.com
+echo 127.0.0.1       telemetry.appex.bing.net:443
+echo 127.0.0.1       settings-sandbox.data.microsoft.com
+echo 127.0.0.1       vortex-sandbox.data.microsoft.com
+echo 127.0.0.1       survey.watson.microsoft.com
+echo 127.0.0.1       watson.live.com
+echo 127.0.0.1       watson.microsoft.com
+echo 127.0.0.1       statsfe2.ws.microsoft.com
+echo 127.0.0.1       corpext.msitadfs.glbdns2.microsoft.com
+echo 127.0.0.1       compatexchange.cloudapp.net
+echo 127.0.0.1       cs1.wpc.v0cdn.net
+echo 127.0.0.1       a-0001.a-msedge.net
+echo 127.0.0.1       statsfe2.update.microsoft.com.akadns.net
+echo 127.0.0.1       sls.update.microsoft.com.akadns.net
+echo 127.0.0.1       fe2.update.microsoft.com.akadns.net
+echo 127.0.0.1       diagnostics.support.microsoft.com
+echo 127.0.0.1       corp.sts.microsoft.com
+echo 127.0.0.1       statsfe1.ws.microsoft.com
+echo 127.0.0.1       pre.footprintpredict.com
+echo 127.0.0.1       i1.services.social.microsoft.com
+echo 127.0.0.1       i1.services.social.microsoft.com.nsatc.net
+echo 127.0.0.1       feedback.windows.com
+echo 127.0.0.1       feedback.microsoft-hohm.com
+echo 127.0.0.1       feedback.search.microsoft.com
+echo 127.0.0.1       rad.msn.com
+echo 127.0.0.1       preview.msn.com
+echo 127.0.0.1       ad.doubleclick.net
+echo 127.0.0.1       ads.msn.com
+echo 127.0.0.1       ads1.msads.net
+echo 127.0.0.1       ads1.msn.com
+echo 127.0.0.1       a.ads1.msn.com
+echo 127.0.0.1       a.ads2.msn.com
+echo 127.0.0.1       adnexus.net
+echo 127.0.0.1       adnxs.com
+echo 127.0.0.1       az361816.vo.msecnd.net
+echo 127.0.0.1       az512334.vo.msecnd.net
+echo 127.0.0.1       ssw.live.com) >> %SystemRoot%\System32\drivers\etc\hosts
 
 REM *** Task that collects data for SmartScreen in Windows ***
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
