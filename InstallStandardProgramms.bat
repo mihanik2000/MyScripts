@@ -64,9 +64,6 @@ CALL "%ScriptPath%\ProgramManagement\Curl-Install.bat"
 REM Установим Wget
 CALL "%ScriptPath%\ProgramManagement\Wget-Install.bat"
 
-REM Установим RDP Wrapper
-CALL "%ScriptPath%\ProgramManagement\RDPWrapper.bat"
-
 REM Установим dotNetFx3.5
 CALL "%ScriptPath%\ProgramManagement\dotNetFx3.5-install.bat"
 
@@ -75,6 +72,9 @@ CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
 
 REM Установим 7Zip
 CALL "%ScriptPath%\ProgramManagement\7Zip-Install.bat"
+
+REM Установим RDP Wrapper
+CALL "%ScriptPath%\ProgramManagement\RDPWrapper.bat"
 
 REM Установим Duplicati 2
 CALL "%ScriptPath%\ProgramManagement\Duplicati-Install.bat"
