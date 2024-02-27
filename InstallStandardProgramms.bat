@@ -58,14 +58,14 @@ CALL %ScriptPath%\WindowsFirewall\AddCertutilToWindowsFirewallExceptions.bat
 REM Настроим возможность подключаться по RDP
 CALL %ScriptPath%\WindowsServices\EnableRDPService.bat
 
-REM Установим RDP Wrapper
-CALL %ScriptPath%\ProgramManagement\RDPWrapper.bat
-
 REM Установим Curl
 CALL %ScriptPath%\ProgramManagement\Curl-Install.bat
 
 REM Установим Wget
 CALL %ScriptPath%\ProgramManagement\Wget-Install.bat
+
+REM Установим RDP Wrapper
+CALL %ScriptPath%\ProgramManagement\RDPWrapper.bat
 
 REM Установим dotNetFx3.5
 CALL %ScriptPath%\ProgramManagement\dotNetFx3.5-install.bat
