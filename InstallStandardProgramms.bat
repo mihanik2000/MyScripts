@@ -72,6 +72,7 @@ CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
 
 REM Установим 7Zip
 CALL "%ScriptPath%\ProgramManagement\7Zip-Install.bat"
+CALL "%ScriptPath%\ProgramManagement\7Zip-associate.bat"
 
 REM Установим RDP Wrapper
 CALL "%ScriptPath%\ProgramManagement\RDPWrapper.bat"
