@@ -55,27 +55,27 @@ CALL "%ScriptPath%\WindowsFirewall\BlockMicrosoftTelemetry.bat"
 REM Добавляем утилиту certutil.exe в исключения межсетевого экрана Windows
 CALL "%ScriptPath%\WindowsFirewall\AddCertutilToWindowsFirewallExceptions.bat"
 
-REM Настроим возможность подключаться по RDP
-CALL "%ScriptPath%\WindowsServices\EnableRDPService.bat"
-
 REM Установим Curl
 CALL "%ScriptPath%\ProgramManagement\Curl-Install.bat"
 
 REM Установим Wget
 CALL "%ScriptPath%\ProgramManagement\Wget-Install.bat"
 
+REM Установим 7Zip
+CALL "%ScriptPath%\ProgramManagement\7Zip-Install.bat"
+CALL "%ScriptPath%\ProgramManagement\7Zip-associate.bat"
+
+REM Настроим возможность подключаться по RDP
+CALL "%ScriptPath%\WindowsServices\EnableRDPService.bat"
+
+REM Установим RDP Wrapper
+CALL "%ScriptPath%\ProgramManagement\RDPWrapper.bat"
+
 REM Установим dotNetFx3.5
 CALL "%ScriptPath%\ProgramManagement\dotNetFx3.5-install.bat"
 
 REM Установим dotNetFx4.8
 CALL "%ScriptPath%\ProgramManagement\dotNetFx4.8-install.bat"
-
-REM Установим 7Zip
-CALL "%ScriptPath%\ProgramManagement\7Zip-Install.bat"
-CALL "%ScriptPath%\ProgramManagement\7Zip-associate.bat"
-
-REM Установим RDP Wrapper
-CALL "%ScriptPath%\ProgramManagement\RDPWrapper.bat"
 
 REM Установим Duplicati 2
 CALL "%ScriptPath%\ProgramManagement\Duplicati-Install.bat"
