@@ -30,8 +30,8 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/121.0/win32/ru/Firefox Setup 121.0.msi"
-set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/121.0/win64/ru/Firefox Setup 121.0.msi"
+set URLFirefoxSetup="https://download-installer.cdn.mozilla.net/pub/firefox/releases/123.0/win32/ru/Firefox Setup 123.0.msi"
+set URLFirefoxSetup-x64="https://download-installer.cdn.mozilla.net/pub/firefox/releases/123.0/win64/ru/Firefox Setup 123.0.msi"
 
 REM Переходим на системный диск
 %SystemDrive%

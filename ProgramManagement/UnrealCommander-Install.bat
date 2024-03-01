@@ -30,7 +30,7 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLuncomsetup="https://unrealcommander.org/download/evolution/uncomsetup3.57(build1497).exe"
+set URLuncomsetup="https://unrealcommander.com/download/evolution/uncomsetup4.21beta18(build1645).exe"
 
 REM Переходим на системный диск
 %SystemDrive%
