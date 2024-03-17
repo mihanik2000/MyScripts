@@ -30,6 +30,6 @@ reg ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU 
 net stop wuauserv
 sc config wuauserv start= disabled
 
-END:
+:END
 
 timeout 10
