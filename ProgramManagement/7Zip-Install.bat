@@ -1,6 +1,6 @@
 @echo off
 REM ****************************************
-REM check
+REM 
 REM Written by Michael Medvedev aka mihanik.
 REM
 REM https://mihanik.net
