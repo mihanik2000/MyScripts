@@ -65,14 +65,6 @@ If exist "%SystemDrive%\Program Files\Wget" (
 	)
 )
 
-set token="6634623113:AAHoRP_N1dkmeHmqraFO2yxOQtYaHUaDjRM"
-set chat_id="289889409"
-set MESSAGE=test
-"C:\Program Files\curl\curl.exe" --insecure --data chat_id=%chat_id% --data-urlencode "text='%MESSAGE%'"  "https://api.telegram.org/bot%token%/sendMessage"
-
-
-
-
 :ENDSUB
 
 timeout 3 >> nul
