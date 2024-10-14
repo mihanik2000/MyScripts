@@ -41,7 +41,7 @@ ECHO .
 ECHO Install Adobe Acrobat Reader...
 ECHO .
 
-    wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://repo.mihanik.net/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
+    wget.exe --no-check-certificate -O "%MyFolder%\AcroRdrDC1900820071_ru_RU_win.exe" "http://choco.mihanik.net/distr/repo/Adobe_Acrobat_Reader/AcroRdrDC1900820071_ru_RU.exe"
     Start /wait AcroRdrDC1900820071_ru_RU_win.exe /sPB
 
 :ENDSUB

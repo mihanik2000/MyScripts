@@ -30,8 +30,8 @@ IF NOT %HasAdminRights%==1 (
 REM Задаём значения переменных
 set MyFolder=%SystemRoot%\TMP\Mihanikus
 
-set URLjre="http://repo.mihanik.net/Java/jre-8u241-windows-i586.exe"
-set URLjre-x64="http://repo.mihanik.net/Java/jre-8u241-windows-x64.exe"
+set URLjre="http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-i586.exe"
+set URLjre-x64="http://choco.mihanik.net/distr/repo/Java/jre-8u241-windows-x64.exe"
 
 REM Переходим на системный диск
 %SystemDrive%
